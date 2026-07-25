@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.routes.auth import router as auth_router
 from app.routes.donor import router as donor_router
+from app.routes.registrations import router as registration_router
 
 
 app = FastAPI(
@@ -32,6 +33,10 @@ app.include_router(
 
     tags=["Donor"]
 
+)
+
+app.include_router(
+    registration_router
 )
 
 @app.get("/")
